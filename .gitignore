@@ -1,3 +1,6 @@
+#Files and directories to ignore in a Python project
+credentials.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
