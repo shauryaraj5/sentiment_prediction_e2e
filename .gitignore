@@ -1,5 +1,7 @@
 #Files and directories to ignore in a Python project
 credentials.txt
+data/
+models/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
