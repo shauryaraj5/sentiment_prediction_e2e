@@ -14,25 +14,25 @@ from src.logger import logging
 # Below code block is for production use
 # -------------------------------------------------------------------------------------
 # Set up DagsHub credentials for MLflow tracking
-# dagshub_token = os.getenv("CAPSTONE_TEST")
-# if not dagshub_token:
-#     raise EnvironmentError("CAPSTONE_TEST environment variable is not set")
+dagshub_token = os.getenv("SENTIMENT_PREDICTION")
+if not dagshub_token:
+    raise EnvironmentError("SENTIMENT_PREDICTION environment variable is not set")
 
-# os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
-# os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
+os.environ["MLFLOW_TRACKING_USERNAME"] = dagshub_token
+os.environ["MLFLOW_TRACKING_PASSWORD"] = dagshub_token
 
-# dagshub_url = "https://dagshub.com"
-# repo_owner = "shauryaraj5"
-# repo_name = "sentiment_prediction_e2e"
+dagshub_url = "https://dagshub.com"
+repo_owner = "shauryaraj5"
+repo_name = "sentiment_prediction_e2e"
 
-# # Set up MLflow tracking URI
-# mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
+# Set up MLflow tracking URI
+mlflow.set_tracking_uri(f'{dagshub_url}/{repo_owner}/{repo_name}.mlflow')
 # -------------------------------------------------------------------------------------
 
 # Below code block is for local use
 # -------------------------------------------------------------------------------------
-mlflow.set_tracking_uri('https://dagshub.com/shauryaraj5/sentiment_prediction_e2e.mlflow')
-dagshub.init(repo_owner='shauryaraj5', repo_name='sentiment_prediction_e2e', mlflow=True)
+# mlflow.set_tracking_uri('https://dagshub.com/shauryaraj5/sentiment_prediction_e2e.mlflow')
+# dagshub.init(repo_owner='shauryaraj5', repo_name='sentiment_prediction_e2e', mlflow=True)
 # -------------------------------------------------------------------------------------
 
 # Load model from file
