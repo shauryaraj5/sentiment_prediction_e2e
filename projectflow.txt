@@ -47,6 +47,8 @@ NOTE: >> uv pip install -e .     Do this to ensure we can use the local packages
 26. Set aws cred - aws configure
 27. Add s3 as dvc remote storage - dvc remote add -d myremote s3://<bucket-name>
 
+------------------------------- PART-3 --------------------------------------------------
+
 28. Create new dir - flask_app | Inside that, add rest of the files and dir
 29. pip install flask and run the app (dvc push - to push data to S3)
 

@@ -35,7 +35,7 @@ mlflow.set_tracking_uri('https://dagshub.com/shauryaraj5/sentiment_prediction_e2
 dagshub.init(repo_owner='shauryaraj5', repo_name='sentiment_prediction_e2e', mlflow=True)
 # -------------------------------------------------------------------------------------
 
-
+# Load model from file
 def load_model(file_path: str):
     """Load the trained model from a file."""
     try:
@@ -50,6 +50,7 @@ def load_model(file_path: str):
         logging.error('Unexpected error occurred while loading the model: %s', e)
         raise
 
+# Load data from CSV
 def load_data(file_path: str) -> pd.DataFrame:
     """Load data from a CSV file."""
     try:
@@ -63,6 +64,7 @@ def load_data(file_path: str) -> pd.DataFrame:
         logging.error('Unexpected error occurred while loading the data: %s', e)
         raise
 
+# Evaluate the model
 def evaluate_model(clf, X_test: np.ndarray, y_test: np.ndarray) -> dict:
     """Evaluate the model and return the evaluation metrics."""
     try:
@@ -86,6 +88,7 @@ def evaluate_model(clf, X_test: np.ndarray, y_test: np.ndarray) -> dict:
         logging.error('Error during model evaluation: %s', e)
         raise
 
+# Save metrics to a JSON file
 def save_metrics(metrics: dict, file_path: str) -> None:
     """Save the evaluation metrics to a JSON file."""
     try:
@@ -96,6 +99,7 @@ def save_metrics(metrics: dict, file_path: str) -> None:
         logging.error('Error occurred while saving the metrics: %s', e)
         raise
 
+# Save model run ID and path
 def save_model_info(run_id: str, model_path: str, file_path: str) -> None:
     """Save the model run ID and path to a JSON file."""
     try:
@@ -111,7 +115,7 @@ def main():
     mlflow.set_experiment("dvc-pipeline-1")
     with mlflow.start_run() as run:  # Start an MLflow run
         try:
-            clf = load_model('./models/model.pkl')
+            clf = load_model('./models/model_Log_Reg.pkl')
             test_data = load_data('./data/processed/test_bow.csv')
             
             X_test = test_data.iloc[:, :-1].values

@@ -35,12 +35,12 @@ stages:
     - data/processed
     - src/model/model_building.py
     outs:
-    - models/model.pkl
+    - models/model_Log_Reg.pkl
 
   model_evaluation:
     cmd: python src/model/model_evaluation.py
     deps:
-    - models/model.pkl
+    - models/model_Log_Reg.pkl
     - src/model/model_evaluation.py
     metrics:
     - reports/metrics.json
