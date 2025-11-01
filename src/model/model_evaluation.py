@@ -166,7 +166,7 @@ def main():
             # wandb.log_artifact(model_artifact)
             
             # Save model info
-            save_model_info(run.id, "model", 'reports/experiment_info.json')
+            save_model_info(run.info.run_id, "model", 'reports/experiment_info.json')
             
             # Log the metrics file to MLflow and wandb
             mlflow.log_artifact('reports/metrics.json')
