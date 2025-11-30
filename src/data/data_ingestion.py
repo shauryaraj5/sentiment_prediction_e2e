@@ -10,6 +10,12 @@ import logging
 from src.logger import logging
 from src.connections import s3_connection
 
+from dotenv import load_dotenv
+load_dotenv()
+
+BUCKET_NAME=os.getenv("Bucket_name")
+ACCESS_KEY=os.getenv("Access_Key")
+SECRET_ACCESS_KEY=os.getenv("Secret_access_key")
 
 def load_params(params_path: str) -> dict:
     """Load parameters from a YAML file."""
@@ -76,7 +82,7 @@ def main():
         # test_size = 0.2
         
         df = load_data(data_url='https://raw.githubusercontent.com/vikashishere/Datasets/refs/heads/main/data.csv')
-        # s3 = s3_connection.s3_operations("sentiment-prediction-e2e", "AKIA4AODVIQCX7MHKNNV", "0J6oj/3h1QWXg280j68caXlvC6ifMLampScgcD31")
+        # s3 = s3_connection.s3_operations(BUCKET_NAME, ACCESS_KEY, SECRET_ACCESS_KEY)
         # df = s3.fetch_file_from_s3("data.csv")
 
 
